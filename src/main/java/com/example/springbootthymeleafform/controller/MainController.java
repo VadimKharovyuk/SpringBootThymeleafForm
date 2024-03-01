@@ -22,8 +22,6 @@ public class MainController {
     }
     @PostMapping("/register")
     public String sumbitForm(@ModelAttribute("user")User user){
-        System.out.println(user);
-
         return "register_sussesful";
     }
 }
