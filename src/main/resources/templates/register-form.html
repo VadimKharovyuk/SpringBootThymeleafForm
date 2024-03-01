@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style type="text/css">
+    label{
+        display: inline-block;
+        width: 200px;
+        margin: 5px;
+        text-align: left;
+    }
+    button{
+        margin: 10px;
+        padding: 10px;
+    }
+    input[type=text] ,input[type=password],select{
+        display: inline-block;
+        width: 200px;
+    }
+    input[type=checkbox]{
+        margin-left: 190px;
+    }
+
+</style>
+<body>
+<div class="container" align="center" >
+    <h1 style="color: firebrick"> User Registration Form </h1>
+    <form th:action="@{/register}" method="post" th:object="${user}">
+        <div>
+            <label>Name</label>
+            <input type="text" th:field="*{name}" placeholder="name">
+        </div>
+        <div>
+            <label>Email</label>
+            <input type="text" th:field="*{email}" placeholder="email">
+        </div>
+        <div>
+            <label>password</label>
+            <input type="password" th:field="*{password}" placeholder="password">
+        </div>
+
+       <div>
+           <label>profession</label>
+           <select th:field="*{profession}">
+           <option th:each="p :${profesionList}" th:value="${p}" th:text="${p}"/>
+           </select>
+       </div>
+        <div>
+            <label> Married ?</label>
+            <input type="checkbox" th:field="*{married}">
+        </div>
+        <div>
+            <label>Gender</label>
+            <input type="radio" th:field="*{gender}" value="Male"/>Male
+            <input type="radio" th:field="*{gender}" value="Female"/>Female
+        </div>
+
+        <div>
+            <label>Note</label>
+            <textarea rows="5" cols="25" th:field="*{note}"></textarea>
+
+
+        </div>
+
+
+
+        <button type="submit"> Register</button>
+    </form>
+
+</div>
+
+</body>
+</html>
